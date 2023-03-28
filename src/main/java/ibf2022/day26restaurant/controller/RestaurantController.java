@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import ibf2022.day26restaurant.model.Restaurant;
 import ibf2022.day26restaurant.repository.RestaurantRepository;
@@ -31,6 +32,11 @@ public class RestaurantController {
         model.addAttribute("cuisines", cuisines);
         return "index";
     }
+
+    @GetMapping(path="/cuisines")
+	public String getRestaurantByCuisinesQS(@RequestParam String cuisine, Model model) {
+		return listRestaurants(cuisine, model); // links with below GetMapping methods
+	}
 
     @GetMapping(path = "/{cuisine}")
     public String listRestaurants(@PathVariable String cuisine, Model model) {

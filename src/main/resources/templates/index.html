@@ -11,6 +11,18 @@
 
     <div class="container">
 
+        <form method="GET" data-th-action="@{/cuisines}">
+
+			<h4>Cuisines</h4>
+			<select name="cuisine">
+				<option data-th-each="c: ${cuisines}" data-th-value="${c}" data-th-text="${c}">
+				</option>
+			</select>
+
+			<button type="submit">GET</button>
+
+		</form>
+
         <div data-th-field="*{cuisines}">
             <ul>
                 <li data-th-each="c : ${cuisines}" >
@@ -20,7 +32,7 @@
                 </li>
             </ul>
         </div>
-        
+       
     </div> 
     
 </body>

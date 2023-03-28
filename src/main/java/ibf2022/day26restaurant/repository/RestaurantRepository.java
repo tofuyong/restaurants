@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.bson.Document;
 import jakarta.json.Json;
-import jakarta.json.JsonNumber;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 import org.slf4j.Logger;
@@ -77,32 +76,6 @@ public class RestaurantRepository {
         }
        return restaurants;
     }
-
-
-
-    // db.restaurant.find({
-	// 	type_of_food: {
-	// 		$regex: 'cuisine', $options: "i"
-	// 	}
-	// })
-	// .sort({ name: -1 })
-	// .projection({ name: 1, address: 1, type_of_food: 1, _id: 0 })
-	// public List<Restaurant> getRestaurantsByCuisine(String cuisine) {
-	// 	Criteria criteria = Criteria.where("type_of_food").regex(cuisine, "i");
-
-	// 	Query query = Query.query(criteria)
-	// 		.with(Sort.by(Direction.ASC, "name"));
-	// 	query.fields()
-	// 		.include("name", "address", "type_of_food", "rating")
-	// 		.exclude("_id");
-
-	// 	return mongoTemplate.find(query, Document.class, C_RESTAURANT)
-	// 		.stream()
-	// 		.map(doc -> doc.toJson())
-	// 		.map(Restaurant::toRestaurant)
-	// 		.toList();
-	// }
-
 
     
 }
